@@ -3,3 +3,33 @@
   margin: 0;
   box-sizing: border-box;
 }
+:root {
+  --color-primary: #0a3871;
+  --color-bg: #f3f5fc;
+  --height-footer: 50px;
+}
+body {
+  background-color: var(--color-bg);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.wrapper > * {
+  outline: solid 1px red;
+}
+.wrapper > main {
+  height: calc(100vh - var(--height-footer));
+}
+.wrapper > footer {
+  height: var(--height-footer);
+}
+
+main.container {
+  display: flex;
+  flex-direction: row;
+}
+main.container > * {
+  outline: 1px solid blue;
+}

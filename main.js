@@ -1,4 +1,4 @@
-const keys = {
+const cipherKeys = {
   e: 'enter',
   i: 'imes',
   a: 'ai',
@@ -30,4 +30,4 @@ function cipher(text, keys, action) {
   return resultText;
 }
 // console.log(cipher(secretMessage, cipherKeys, 'decrypt'));
-console.log(cipher(plainText, cipherKeys, 'encryasdfpt'));
+console.log(cipher(plainText, cipherKeys, 'encrypt'));
