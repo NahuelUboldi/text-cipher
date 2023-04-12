@@ -1,33 +1,49 @@
-const cipherKeys = {
-  e: 'enter',
-  i: 'imes',
-  a: 'ai',
-  o: 'ober',
-  u: 'ufat',
-};
+import cipher from './assets/js/cipher.js';
+import cipherKeys from './assets/js/keys.js';
 
-const secretMessage =
-  'fenterlimescimesdaidenters poberr enternfrenterntair enterstenter dentersaifimesober y haibenterrlober cobernclufatimesdober cobern enterximestober!';
-const encryptedText = 'enterimesaioberufat';
-const plainText = 'eiaou';
+const inputText = document.querySelector('.user-text textarea');
+const resultText = document.querySelector('.result-text div');
+const encryptBtn = document.querySelector('.btn-encrypt');
+const decryptBtn = document.querySelector('.btn-decrypt');
+const copyTextBtnCode =
+  '<button class="btn btn-secondary btn-copy-text">Copiar</button>';
 
-function cipher(text, keys, action) {
-  let resultText = text;
-  Object.keys(keys).forEach((key) => {
-    const value = keys[key];
-    if (action === 'decrypt') {
-      const regex = new RegExp(value, 'g');
-      resultText = resultText.replace(regex, key);
-    } else if (action === 'encrypt') {
-      const regex = new RegExp(key, 'g');
-      resultText = resultText.replace(regex, value);
-    } else {
-      throw new Error(
-        'no action or wrong action selected -it must be decrypt or encrypt-'
-      );
-    }
-  });
-  return resultText;
+function isValidText(text) {
+  const onlyLowerAndCharacters = /[^a-z]/;
+  return !onlyLowerAndCharacters.test(text);
 }
-// console.log(cipher(secretMessage, cipherKeys, 'decrypt'));
-console.log(cipher(plainText, cipherKeys, 'encrypt'));
+
+function handleEncrypt() {
+  if (!isValidText(inputText.value)) {
+    alert('Solo se aceptan letras minúsculas y sin acentos');
+    return;
+  }
+  const encryptedText = cipher(inputText.value, cipherKeys, 'encrypt');
+  resultText.innerHTML = `
+  <span>${encryptedText}</span>  ${copyTextBtnCode}
+  `;
+  const copyTextBtn = document.querySelector('.btn-copy-text');
+  copyTextBtn.addEventListener('click', handleCopy);
+}
+function handleDecrypt() {
+  if (!isValidText(inputText.value)) {
+    alert('Solo se aceptan letras minúsculas y sin acentos');
+    return;
+  }
+  const decryptedText = cipher(inputText.value, cipherKeys, 'decrypt');
+  resultText.innerHTML = `
+  <span>${decryptedText}</span>  ${copyTextBtnCode}
+  `;
+
+  const copyTextBtn = document.querySelector('.btn-copy-text');
+  copyTextBtn.addEventListener('click', handleCopy);
+}
+
+function handleCopy() {
+  const textToCopy = document.querySelector('.result-text div span');
+  console.log(textToCopy.textContent);
+  navigator.clipboard.writeText(textToCopy.textContent);
+}
+
+encryptBtn.addEventListener('click', handleEncrypt);
+decryptBtn.addEventListener('click', handleDecrypt);

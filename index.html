@@ -4,16 +4,37 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <script src="main.js" defer></script>
     <title>Encriptador de texto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="main.js" type="module" defer></script>
   </head>
   <body>
     <div class="wrapper">
       <main class="container">
-        <header>logo</header>
-        <div class="user-text">ingrese texto aquí</div>
-        <div class="result-text">resultado</div>
+        <header>
+          <img src="assets/img/logo.svg" alt="logo alura" />
+        </header>
+        <div class="user-text">
+          <textarea name="textarea" placeholder="Ingrese texto aquí" autofocus>
+hola</textarea
+          >
+          <div class="btns-container">
+            <button class="btn btn-primary btn-encrypt">Encriptar</button>
+            <button class="btn btn-secondary btn-decrypt">Desencriptar</button>
+          </div>
+        </div>
+        <div class="result-text">
+          <div>
+            <span>Ningún mensaje fue encontrado</span>
+            <span>Ingresa el texto que desees encriptar o desencriptar.</span>
+          </div>
+        </div>
       </main>
       <footer>Sitio creado por Nahuel</footer>
     </div>

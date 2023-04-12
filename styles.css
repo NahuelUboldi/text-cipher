@@ -6,10 +6,15 @@
 :root {
   --color-primary: #0a3871;
   --color-bg: #f3f5fc;
+  --color-btn-hover: #1e5eac;
+
   --height-footer: 50px;
+
+  --fs-user-text: 32px;
 }
 body {
   background-color: var(--color-bg);
+  font-family: 'Inter', sans-serif;
 }
 
 .wrapper {
@@ -28,8 +33,88 @@ body {
 
 main.container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem;
 }
 main.container > * {
-  outline: 1px solid blue;
+  /* outline: 1px solid blue; */
+  padding: 1rem;
+}
+main.container > header {
+  flex-grow: 1;
+}
+
+/* USER TEXT STYLES */
+main.container > .user-text {
+  flex-grow: 15;
+  display: flex;
+  flex-direction: column;
+}
+main.container > .user-text > textarea {
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  font-size: var(--fs-user-text);
+  color: var(--color-primary);
+  resize: none;
+  outline: none;
+  flex-grow: 10;
+}
+main.container > .user-text > .btns-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-grow: 1;
+}
+.btn {
+  padding: 0.7rem;
+  border: solid 1px var(--color-primary);
+  border-radius: 0.7rem;
+  width: 100%;
+  color: var(--color-primary);
+  transition: all ease 0.7s;
+}
+.btn.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+}
+.btn:hover {
+  background-color: var(--color-btn-hover);
+  color: var(--color-bg);
+  cursor: pointer;
+}
+
+/* RESULT TEXT STYLES */
+main.container > .result-text {
+  flex-grow: 3;
+  padding: 1rem;
+}
+main.container > .result-text div {
+  background-color: white;
+  height: 100%;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+main.container > .result-text span {
+  text-align: center;
+  display: block;
+}
+main.container > .result-text span:nth-child(1) {
+  font-size: 24px;
+  font-weight: 700;
+  margin-block-end: 0.5rem;
+}
+
+/* MEDIA QUERIES */
+
+/* tablet */
+@media (min-width: 375px) {
+  main.container > .user-text > .btns-container {
+    flex-direction: row;
+  }
+}
+
+/* desktop*/
+@media (min-width: 768px) {
 }
