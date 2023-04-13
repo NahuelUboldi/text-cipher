@@ -11,10 +11,15 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="styles.css" />
     <script src="main.js" type="module" defer></script>
   </head>
   <body>
+    <div class="alert hidden">Texto copiado al portapapeles</div>
     <div class="wrapper">
       <main class="container">
         <header>
@@ -31,12 +36,30 @@ hola</textarea
         </div>
         <div class="result-text">
           <div>
-            <span>Ningún mensaje fue encontrado</span>
+            <img
+              src="/assets/img/drawing.svg"
+              alt="dibujo de persona con lupa"
+            />
+            <span class="highlight">Ningún mensaje fue encontrado</span>
             <span>Ingresa el texto que desees encriptar o desencriptar.</span>
           </div>
         </div>
       </main>
-      <footer>Sitio creado por Nahuel</footer>
+      <footer>
+        App creada por Nahuel Uboldi
+        <a href="https://github.com/NahuelUboldi" target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/nahuel-uboldi-15845ba6/"
+          target="_blank"
+        >
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a href="https://nahueluboldi.com" target="_blank"
+          ><i class="fa-solid fa-globe"></i
+        ></a>
+      </footer>
     </div>
   </body>
 </html>
